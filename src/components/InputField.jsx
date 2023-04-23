@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {useDispatch} from "react-redux";
-import {addTodo} from "../app/todos/todoSlice";
+import {asyncAddTodo} from "../app/todos/asyncActions";
 
 const InputField = () => {
     const [text, setText] = useState('');
@@ -8,7 +8,7 @@ const InputField = () => {
 
     const addTask = () => {
         if (text.trim().length) {
-            dispatch(addTodo({text}))
+            dispatch(asyncAddTodo(text))
         }
         setText('')
     }
